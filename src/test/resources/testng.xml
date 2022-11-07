@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Alerts Test">
+    <test name="First test">
+        <classes>
+            <class name="test.UpperColorIndicator"/>
+        </classes>
+    </test>
+    <test name="Fill applicant form boundary values">
+        <classes>
+            <class name="test.FillApplicantsFormBoundaryValues"/>
+        </classes>
+    </test>
+    <test name="Create new marriage certificate">
+        <classes>
+            <class name="test.CreateMarriageCertificates"/>
+        </classes>
+    </test>
+</suite>
