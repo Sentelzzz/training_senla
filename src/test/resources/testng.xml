@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Alerts Test">
+<suite name="Alerts Test" thread-count="2" parallel="tests">
     <test name="First test">
         <classes>
             <class name="test.UpperColorIndicator"/>
