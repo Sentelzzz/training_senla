@@ -8,34 +8,39 @@ import utils.ParseUtil;
 
 public class DataProviders {
 
-    public static final Applicants validUser = Applicants.builder().secondName(ParseUtil.testParser("validateSecondName"))
+    public static final Applicants validUser = Applicants.builder()
+            .secondName(ParseUtil.testParser("validateSecondName"))
             .firstName(ParseUtil.testParser("validateFirstName"))
             .middleName(ParseUtil.testParser("validateMiddleName"))
             .phoneNumber(ParseUtil.testParser("validatePhoneNumber"))
             .passportNumber(ParseUtil.testParser("validatePassportNumber"))
             .build();
 
-    public static final Applicants validBoundaryUser = Applicants.builder().secondName(ParseUtil.testParser("validBoundarySecondName"))
+    public static final Applicants validBoundaryUser = Applicants.builder()
+            .secondName(ParseUtil.testParser("validBoundarySecondName"))
             .firstName(ParseUtil.testParser("validBoundaryFirstName"))
             .middleName(ParseUtil.testParser("validBoundaryMiddleName"))
             .phoneNumber(ParseUtil.testParser("validBoundaryPhoneNumber"))
             .passportNumber(ParseUtil.testParser("validBoundaryPassportNumber"))
             .build();
 
-    public static final Applicants boundaryUser = Applicants.builder().secondName(ParseUtil.testParser("boundarySecondName"))
+    public static final Applicants boundaryUser = Applicants.builder()
+            .secondName(ParseUtil.testParser("boundarySecondName"))
             .firstName(ParseUtil.testParser("boundaryFirstName"))
             .middleName(ParseUtil.testParser("boundaryMiddleName"))
             .phoneNumber(ParseUtil.testParser("boundaryPhoneNumber"))
             .passportNumber(ParseUtil.testParser("boundaryPassportNumber")).build();
 
-    public static final FirstCitizen validFirstCitizen = FirstCitizen.builder().secondName(ParseUtil.testParser("validCitizenSecondName"))
+    public static final FirstCitizen validFirstCitizen = FirstCitizen.builder()
+            .secondName(ParseUtil.testParser("validCitizenSecondName"))
             .firstName(ParseUtil.testParser("validCitizenFirstName"))
             .middleName(ParseUtil.testParser("validCitizenMiddleName"))
             .dateOfBirth(ParseUtil.testParser("validCitizenDateOfBirth"))
             .passportNumber(ParseUtil.testParser("validCitizenPassportNumber"))
             .gender(ParseUtil.testParser("validCitizenGender")).build();
 
-    public static final Spouse validSpouse = Spouse.builder().dateOfRegistration(ParseUtil.testParser("validDateOfRegistration"))
+    public static final Spouse validSpouse = Spouse.builder()
+            .dateOfRegistration(ParseUtil.testParser("validDateOfRegistration"))
             .secondName(ParseUtil.testParser("validSecondNameOfSpouse"))
             .firstName(ParseUtil.testParser("validNameOfSpouse"))
             .middleName(ParseUtil.testParser("validMiddleNameOfSpouse"))
@@ -71,6 +76,40 @@ public class DataProviders {
                 {validUser.getSecondName(), validUser.getFirstName(),
                         validUser.getMiddleName(), validUser.getPhoneNumber(),
                         ParseUtil.testParser("incorrectPassportNumber")}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] userDataForApplicantsNextButtonForm() {
+        return new Object[][]{
+                {"", validUser.getFirstName(), validUser.getMiddleName(),
+                        validUser.getPhoneNumber(), validUser.getPassportNumber()},
+                {validUser.getSecondName(), "", validUser.getMiddleName(),
+                        validUser.getPhoneNumber(), validUser.getPassportNumber()},
+                {validUser.getSecondName(), validUser.getFirstName(), "",
+                        validUser.getPhoneNumber(), validUser.getPassportNumber()},
+                {validUser.getSecondName(), validUser.getFirstName(), validUser.getMiddleName(),
+                        "", validUser.getPassportNumber()},
+                {validUser.getSecondName(), validUser.getFirstName(), validUser.getMiddleName(),
+                        validUser.getPhoneNumber(), ""}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] userDataForCitizenNextButtonForm() {
+        return new Object[][]{
+                {"", validFirstCitizen.getFirstName(), validFirstCitizen.getMiddleName(),
+                        validFirstCitizen.getDateOfBirth(), validFirstCitizen.getPassportNumber(), validFirstCitizen.getGender()},
+                {validFirstCitizen.getSecondName(), "", validFirstCitizen.getMiddleName(),
+                        validFirstCitizen.getDateOfBirth(), validFirstCitizen.getPassportNumber(), validFirstCitizen.getGender()},
+                {validFirstCitizen.getSecondName(), validFirstCitizen.getFirstName(), "",
+                        validFirstCitizen.getDateOfBirth(), validFirstCitizen.getPassportNumber(), validFirstCitizen.getGender()},
+                {validFirstCitizen.getSecondName(), validFirstCitizen.getFirstName(), validFirstCitizen.getMiddleName(),
+                        "", validFirstCitizen.getPassportNumber(), validFirstCitizen.getGender()},
+                {validFirstCitizen.getSecondName(), validFirstCitizen.getFirstName(), validFirstCitizen.getMiddleName(),
+                        validFirstCitizen.getDateOfBirth(), "", validFirstCitizen.getGender()},
+                {validFirstCitizen.getSecondName(), validFirstCitizen.getFirstName(), validFirstCitizen.getMiddleName(),
+                        validFirstCitizen.getDateOfBirth(), validFirstCitizen.getPassportNumber(), ""}
         };
     }
 }

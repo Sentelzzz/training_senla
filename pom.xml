@@ -122,6 +122,12 @@
             <artifactId>gson</artifactId>
             <version>2.9.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>6.7.2</version>
+        </dependency>
     </dependencies>
 
 </project>

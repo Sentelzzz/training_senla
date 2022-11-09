@@ -2,7 +2,7 @@ package test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import page.*;
+import pageForSelenium.*;
 import service.NavigateSteps;
 import utils.ParseUtil;
 import utils.data.DataProviders;
