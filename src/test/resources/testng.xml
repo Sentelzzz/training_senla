@@ -3,17 +3,17 @@
 <suite name="Alerts Test" thread-count="2" parallel="tests">
     <test name="First test">
         <classes>
-            <class name="test.UpperColorIndicator"/>
+            <class name="test.UpperColorIndicatorTest"/>
         </classes>
     </test>
     <test name="Fill applicant form boundary values">
         <classes>
-            <class name="test.FillApplicantsFormBoundaryValues"/>
+            <class name="test.FillApplicantsFormBoundaryValuesTest"/>
         </classes>
     </test>
     <test name="Create new marriage certificate">
         <classes>
-            <class name="test.CreateMarriageCertificates"/>
+            <class name="test.CreateMarriageCertificatesTest"/>
         </classes>
     </test>
 </suite>

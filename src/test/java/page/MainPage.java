@@ -16,6 +16,7 @@ public class MainPage extends BasePage{
     }
 
     public void loginLikeUser() {
+        logger.info("Click login like user button,");
         loginLikeUserButton.click();
     }
 }

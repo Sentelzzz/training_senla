@@ -34,26 +34,32 @@ public class CitizenPage extends BasePage{
     }
 
     public void fillSecondNameField(String secondName) {
+        logger.info("Fill second name field.");
         secondNameInput.sendKeys(secondName);
     }
 
     public void fillFirstNameField(String firstName) {
+        logger.info("Fill first name field.");
         firstNameInput.sendKeys(firstName);
     }
 
     public void fillMiddleNameField(String middleName) {
+        logger.info("Fill middle name field.");
         middleNameInput.sendKeys(middleName);
     }
 
     public void fillDateOfBirthField(int dateOfBirth) {
+        logger.info("Fill date of birth field.");
         dateOfBirthInput.sendKeys("" + dateOfBirth);
     }
 
     public void fillPassportNumberField(String passportNumber) {
+        logger.info("Fill passport number field.");
         passportNumberInput.sendKeys(passportNumber);
     }
 
     public void fillGenderField(String gender) {
+        logger.info("Fill gender field.");
         genderInput.sendKeys(gender);
     }
 
@@ -62,6 +68,7 @@ public class CitizenPage extends BasePage{
     }
 
     public void clickNextButton() {
+        logger.info("Click next button.");
         nextButton.click();
     }
 }

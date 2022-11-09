@@ -34,30 +34,37 @@ public class MarriagePage extends BasePage{
     }
 
     public void fillDateOfRegistrationField(int dateOfRegistration) {
+        logger.info("Fill date of registration field.");
         dateOfRegistrationInput.sendKeys("" + dateOfRegistration);
     }
 
     public void  fillSecondNameOfSpouseField(String secondNameOfSpouse) {
+        logger.info("Fill second name of spouse field.");
         secondNameOfSpouseInput.sendKeys(secondNameOfSpouse);
     }
 
     public void fillFirstNameOfSpouseField(String firstNameOfSpouse) {
+        logger.info("Fill first name of spouse field.");
         firstNameOfSpouseInput.sendKeys(firstNameOfSpouse);
     }
 
     public void fillMiddleNameOfSpouseField(String middleNameOfSpouse) {
+        logger.info("Fill middle name of spouse field.");
         middleNameOfSpouseInput.sendKeys(middleNameOfSpouse);
     }
 
     public void fillDateOfBirthField(int dateOfSpouseBirth) {
+        logger.info("Fill date of birth field.");
         dateOfBirthSpouseInput.sendKeys("" + dateOfSpouseBirth);
     }
 
     public void fillPassportNumberSpouseField(String passportNumberSpouse) {
+        logger.info("Fill spouse passport number field.");
         passportNumberOfSpouseInput.sendKeys(passportNumberSpouse);
     }
 
     public void clickFinishButton() {
+        logger.info("Click finish button.");
         finishButton.click();
     }
 

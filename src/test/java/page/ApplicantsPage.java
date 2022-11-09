@@ -35,6 +35,7 @@ public class ApplicantsPage extends BasePage{
     }
 
     public void clickNextButton() {
+        logger.info("Click next button.");
         nextButton.click();
     }
 
@@ -43,22 +44,27 @@ public class ApplicantsPage extends BasePage{
     }
 
     public void fillSecondNameField(String secondName) {
+        logger.info("Fill second name field.");
         secondNameInput.sendKeys(secondName);
     }
 
     public void fillFirstNameField(String firstName) {
+        logger.info("Fill first name field.");
         firstNameInput.sendKeys(firstName);
     }
 
     public void fillMiddleNameField(String middleName) {
+        logger.info("Fill middle name field.");
         middleNameInput.sendKeys(middleName);
     }
 
     public void fillPhoneNumberField(Integer phoneNumber) {
+        logger.info("Fill phone number field.");
         phoneNumberInput.sendKeys("" + phoneNumber);
     }
 
     public void fillPassportNumberField(String passportNumber) {
+        logger.info("Fill passport number field.");
         passportNumberInput.sendKeys(passportNumber);
     }
 
@@ -67,42 +73,52 @@ public class ApplicantsPage extends BasePage{
     }
 
     public String getFirstNameFieldText() {
+        logger.info("Get text from first name field.");
         return firstNameInput.getAttribute("defaultValue");
     }
 
     public String getSecondNameFieldText() {
+        logger.info("Get text from second name field.");
         return secondNameInput.getAttribute("defaultValue");
     }
 
     public String getMiddleNameFieldText() {
+        logger.info("Get text from middle name field.");
         return middleNameInput.getAttribute("defaultValue");
     }
 
     public String getPhoneNumberFieldText() {
+        logger.info("Get text from phone number field.");
         return phoneNumberInput.getAttribute("defaultValue");
     }
 
     public String getPassportNumberFieldText() {
+        logger.info("Get text from passport number field.");
         return passportNumberInput.getAttribute("defaultValue");
     }
 
     public boolean isSecondNameAriaInvalid() {
+        logger.info("Check that field have red border.");
         return Boolean.parseBoolean(secondNameInput.getAttribute("ariaInvalid"));
     }
 
     public boolean isFirstNameAriaInvalid() {
+        logger.info("Check that field have red border.");
         return Boolean.parseBoolean(firstNameInput.getAttribute("ariaInvalid"));
     }
 
     public boolean isMiddleNameAriaInvalid() {
+        logger.info("Check that field have red border.");
         return Boolean.parseBoolean(middleNameInput.getAttribute("ariaInvalid"));
     }
 
     public boolean isPhoneNumberAriaInvalid() {
+        logger.info("Check that field have red border.");
         return Boolean.parseBoolean(phoneNumberInput.getAttribute("ariaInvalid"));
     }
 
     public boolean isPassportNumberAriaInvalid() {
+        logger.info("Check that field have red border.");
         return Boolean.parseBoolean(passportNumberInput.getAttribute("ariaInvalid"));
     }
 

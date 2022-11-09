@@ -7,23 +7,19 @@ import page.ApplicantsPage;
 import page.MainPage;
 import service.NavigateSteps;
 import utils.ParseUtil;
+import utils.data.DataProviders;
 
-public class FillApplicantsFormBoundaryValues extends BaseTest{
+public class FillApplicantsFormBoundaryValuesTest extends BaseTest{
 
     @Test (dataProvider = "userCorrectData", dataProviderClass = DataProviders.class)
     public void fillApplicantsFormValidValues(String secondName, String firstName, String middleName, String phoneNumber, String passportNumber) {
         SoftAssert softAssert = new SoftAssert();
-
         NavigateSteps navigateSteps = new NavigateSteps();
         navigateSteps.openMainPage();
-
-        logger.info("Click login like user button.");
         MainPage mainPage = new MainPage();
         mainPage.loginLikeUser();
         ApplicantsPage applicantsPage = new ApplicantsPage();
         Assert.assertTrue(applicantsPage.applicantsPageIsOpen(), "Applicants page isn't opened!");
-
-        logger.info("Fill the form test's data.");
         applicantsPage.fillSecondNameField(secondName);
         softAssert.assertEquals(secondName, applicantsPage.getSecondNameFieldText(), "Second names don't match!");
         softAssert.assertFalse(applicantsPage.isSecondNameAriaInvalid(), "Red indicator around second name field present!");
@@ -40,27 +36,19 @@ public class FillApplicantsFormBoundaryValues extends BaseTest{
         softAssert.assertEquals(passportNumber, applicantsPage.getPassportNumberFieldText(), "Passport numbers don't match!");
         softAssert.assertFalse(applicantsPage.isPassportNumberAriaInvalid(), "Red indicator around passport number field present");
         Assert.assertTrue(applicantsPage.nextButtonIsClickable(), "Next button is enabled!");
-
-        logger.info("Click next button.");
         applicantsPage.clickNextButton();
-
         softAssert.assertAll();
     }
 
     @Test(dataProvider = "userIncorrectData", dataProviderClass = DataProviders.class)
     public void fillApplicantsFormIncorrectValues(String secondName, String firstName, String middleName, String phoneNumber, String passportNumber) {
         SoftAssert softAssert = new SoftAssert();
-
         NavigateSteps navigateSteps = new NavigateSteps();
         navigateSteps.openMainPage();
-
-        logger.info("Click login like user button.");
         MainPage mainPage = new MainPage();
         mainPage.loginLikeUser();
         ApplicantsPage applicantsPage = new ApplicantsPage();
         Assert.assertTrue(applicantsPage.applicantsPageIsOpen(), "Applicants page isn't opened!");
-
-        logger.info("Fill the form test's data.");
         applicantsPage.fillSecondNameField(secondName);
         softAssert.assertFalse(applicantsPage.getSecondNameFieldText().contains(secondName), "Second names match!");
         softAssert.assertTrue(applicantsPage.isSecondNameAriaInvalid(), "Red indicator around second name field is not presented!");
@@ -76,7 +64,6 @@ public class FillApplicantsFormBoundaryValues extends BaseTest{
         applicantsPage.fillPassportNumberField(passportNumber);
         softAssert.assertFalse(applicantsPage.getSecondNameFieldText().contains(passportNumber), "Passport numbers match!");
         softAssert.assertTrue(applicantsPage.isPassportNumberAriaInvalid(), "Red indicator around passport number field is not presented!");
-
         softAssert.assertAll();
     }
 

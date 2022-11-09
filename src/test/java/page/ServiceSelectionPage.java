@@ -13,6 +13,7 @@ public class ServiceSelectionPage extends BasePage{
     }
 
     public void clickMarriageRegistrationButton() {
+        logger.info("Click marriage registration button.");
         marriageRegistrationsButton.click();
     }
 }

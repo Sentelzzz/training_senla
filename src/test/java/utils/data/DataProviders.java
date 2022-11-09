@@ -1,4 +1,4 @@
-package test;
+package utils.data;
 
 import models.Applicants;
 import models.FirstCitizen;

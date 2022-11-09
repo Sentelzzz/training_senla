@@ -1,12 +1,15 @@
 package service;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import page.MainPage;
-import test.BaseTest;
 import utils.ParseUtil;
 import utils.driver.DriverSingleton;
 
-public class NavigateSteps extends BaseTest {
+public class NavigateSteps {
+
+    private final Logger logger = LogManager.getLogger(NavigateSteps.class);
 
     public void openMainPage() {
         logger.info("Open main page.");
