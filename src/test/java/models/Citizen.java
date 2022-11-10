@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class FirstCitizen {
+public class Citizen {
 
     private String secondName;
     private String firstName;

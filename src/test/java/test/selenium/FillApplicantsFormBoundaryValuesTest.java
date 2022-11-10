@@ -1,4 +1,4 @@
-package test;
+package test.selenium;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +9,7 @@ import service.NavigateSteps;
 import utils.ParseUtil;
 import utils.data.DataProviders;
 
-public class FillApplicantsFormBoundaryValuesTest extends BaseTest{
+public class FillApplicantsFormBoundaryValuesTest extends BaseTest {
 
     @Test (dataProvider = "userCorrectData", dataProviderClass = DataProviders.class)
     public void fillApplicantsFormValidValues(String secondName, String firstName, String middleName, String phoneNumber, String passportNumber) {

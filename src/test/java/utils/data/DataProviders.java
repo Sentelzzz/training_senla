@@ -1,7 +1,8 @@
 package utils.data;
 
+import models.Administrator;
 import models.Applicants;
-import models.FirstCitizen;
+import models.Citizen;
 import models.Spouse;
 import org.testng.annotations.DataProvider;
 import utils.ParseUtil;
@@ -31,7 +32,7 @@ public class DataProviders {
             .phoneNumber(ParseUtil.testParser("boundaryPhoneNumber"))
             .passportNumber(ParseUtil.testParser("boundaryPassportNumber")).build();
 
-    public static final FirstCitizen validFirstCitizen = FirstCitizen.builder()
+    public static final Citizen validFirstCitizen = Citizen.builder()
             .secondName(ParseUtil.testParser("validCitizenSecondName"))
             .firstName(ParseUtil.testParser("validCitizenFirstName"))
             .middleName(ParseUtil.testParser("validCitizenMiddleName"))
@@ -46,6 +47,14 @@ public class DataProviders {
             .middleName(ParseUtil.testParser("validMiddleNameOfSpouse"))
             .dateOfBirth(ParseUtil.testParser("validDateOfBirthOfSpouse"))
             .passportNumber(ParseUtil.testParser("validPassportNumberOfSpouse")).build();
+
+    public static final Administrator validAdministrator = Administrator.builder()
+            .dateofbirth(ParseUtil.testParser("administratorDateOfBirth"))
+            .personalFirstName(ParseUtil.testParser("administratorFirstName"))
+            .personalLastName(ParseUtil.testParser("administratorLastName"))
+            .personalMiddleName(ParseUtil.testParser("administratorMiddleName"))
+            .personalNumberOfPassport(ParseUtil.testParser("administratorPassportNumber"))
+            .personalPhoneNumber(ParseUtil.testParser("administratorPhoneNumber")).build();
 
     @DataProvider
     public static Object[][] userCorrectData() {

@@ -1,4 +1,4 @@
-package selenideTest;
+package test.selenide;
 
 import com.codeborne.selenide.Condition;
 import org.testng.annotations.Test;
@@ -11,10 +11,10 @@ import utils.data.DataProviders;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class CloseButtonServiceSelectionPageTest extends BaseTest{
+public class BackButtonServiceSelectionPageTest extends BaseTest{
 
     @Test
-    public void isCloseButtonServiceSelectionPageWorkTest() {
+    public void isBackButtonServiceSelectionPageWorkTest() {
         open(String.format(ParseUtil.settingsParser("mainUrl"), ParseUtil.testParser("login"), ParseUtil.testParser("password")));
         MainPage mainPage = new MainPage();
         $(mainPage.getMainPageHeader()).shouldBe(Condition.visible);
@@ -29,7 +29,7 @@ public class CloseButtonServiceSelectionPageTest extends BaseTest{
         applicantsPage.clickNextButton();
         ServiceSelectionPage serviceSelectionPage = new ServiceSelectionPage();
         $(serviceSelectionPage.getMarriageRegistrationButton()).shouldBe(Condition.visible);
-        serviceSelectionPage.clickCloseButton();
-        $(mainPage.getMainPageHeader()).shouldBe(Condition.visible);
+        serviceSelectionPage.clickBackButton();
+        $(applicantsPage.getApplicantsPageHeader()).shouldBe(Condition.visible);
     }
 }

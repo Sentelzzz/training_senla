@@ -1,4 +1,4 @@
-package selenideTest;
+package test.selenide;
 
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeClass;

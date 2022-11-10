@@ -1,4 +1,4 @@
-package test;
+package test.selenium;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,7 +7,7 @@ import service.NavigateSteps;
 import utils.ParseUtil;
 import utils.data.DataProviders;
 
-public class CreateMarriageCertificatesTest extends BaseTest{
+public class CreateMarriageCertificatesTest extends BaseTest {
 
     @Test
     public void createNewMarriageCertificate() {

@@ -1,6 +1,8 @@
 {
   "login": "user",
   "password": "senlatest",
+  "swaggerLogin": "user",
+  "swaggerPassword": "senlatest",
   "validateSecondName": "Мялик",
   "validateFirstName": "Вадим",
   "validateMiddleName": "Олегович",
@@ -35,5 +37,16 @@
   "validNameOfSpouse": "Екатерина",
   "validMiddleNameOfSpouse": "Юрьевна",
   "validDateOfBirthOfSpouse": "20.10.1993",
-  "validPassportNumberOfSpouse": "AB3454545"
+  "validPassportNumberOfSpouse": "AB3454545",
+  "administratorDateOfBirth": "10.10.1991",
+  "administratorFirstName": "Вадим",
+  "administratorLastName": "Мялик",
+  "administratorMiddleName": "Олегович",
+  "administratorPassportNumber": "AB3565656",
+  "administratorPhoneNumber": "345333565656",
+  "applicationId": "18898",
+  "staffId": "8271",
+  "actionRejected": "rejected",
+  "actionApproved": "approved"
+
 }

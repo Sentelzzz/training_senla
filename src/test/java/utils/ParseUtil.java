@@ -1,11 +1,14 @@
 package utils;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import models.Administrator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -59,5 +62,16 @@ public class ParseUtil {
             break;
         }
         return indicateColor;
+    }
+
+    public static String objectToJson(Administrator administrator) {
+        String result = null;
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            result = objectMapper.writeValueAsString(administrator);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }
