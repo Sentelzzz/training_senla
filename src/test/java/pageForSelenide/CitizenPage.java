@@ -53,7 +53,7 @@ public class CitizenPage {
         $(By.xpath(GENDER_INPUT)).sendKeys(gender);
     }
 
-    public boolean isClickableNextButton() {
-        return $(By.xpath(NEXT_BUTTON)).isEnabled();
+    public By getNextButton() {
+        return By.xpath(NEXT_BUTTON);
     }
 }

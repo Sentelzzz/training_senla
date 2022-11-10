@@ -21,4 +21,8 @@ public class MainPage {
         logger.info("Click login like user button,");
         $(By.xpath(LOGIN_LIKE_USER_BUTTON)).click();
     }
+
+    public By getMainPageHeader() {
+        return By.xpath(MAIN_PAGE_HEADER);
+    }
 }

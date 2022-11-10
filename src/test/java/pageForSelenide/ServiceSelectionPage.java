@@ -14,8 +14,8 @@ public class ServiceSelectionPage {
     public static final String CLOSE_BUTTON = "//button[contains(text(), 'Закрыть')]";
     public static final String BACK_BUTTON = "//button[contains(text(), 'Назад')]";
 
-    public boolean isMarriagePageOpen() {
-        return $(By.xpath(MARRIAGE_REGISTRATION_BUTTON)).isDisplayed();
+    public By getMarriageRegistrationButton() {
+        return By.xpath(MARRIAGE_REGISTRATION_BUTTON);
     }
 
     public void clickCloseButton() {

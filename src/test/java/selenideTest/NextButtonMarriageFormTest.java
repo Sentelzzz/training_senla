@@ -1,5 +1,6 @@
 package selenideTest;
 
+import com.codeborne.selenide.Condition;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageForSelenide.ApplicantsPage;
@@ -9,6 +10,7 @@ import pageForSelenide.ServiceSelectionPage;
 import utils.ParseUtil;
 import utils.data.DataProviders;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class NextButtonMarriageFormTest extends BaseTest{
@@ -18,10 +20,10 @@ public class NextButtonMarriageFormTest extends BaseTest{
                                                         String gender) {
         open(String.format(ParseUtil.settingsParser("mainUrl"), ParseUtil.testParser("login"), ParseUtil.testParser("password")));
         MainPage mainPage = new MainPage();
-        Assert.assertTrue(mainPage.mainPageIsOpen(), "Main page isn't opened!");
+        $(mainPage.getMainPageHeader()).shouldBe(Condition.visible);
         mainPage.loginLikeUser();
         ApplicantsPage applicantsPage = new ApplicantsPage();
-        Assert.assertTrue(applicantsPage.applicantsPageIsOpen(), "Applicants page isn't opened!");
+        $(applicantsPage.getApplicantsPageHeader()).shouldBe(Condition.visible);
         applicantsPage.fillSecondNameField(DataProviders.validUser.getSecondName());
         applicantsPage.fillFirstNameField(DataProviders.validUser.getFirstName());
         applicantsPage.fillMiddleNameField(DataProviders.validUser.getMiddleName());
@@ -29,7 +31,7 @@ public class NextButtonMarriageFormTest extends BaseTest{
         applicantsPage.fillPassportNumberField(DataProviders.validUser.getPassportNumber());
         applicantsPage.clickNextButton();
         ServiceSelectionPage serviceSelectionPage = new ServiceSelectionPage();
-        Assert.assertTrue(serviceSelectionPage.isMarriagePageOpen(), "Service selection page isn't opened!");
+        $(serviceSelectionPage.getMarriageRegistrationButton()).shouldBe(Condition.visible);
         serviceSelectionPage.clickMarriageRegistrationButton();
         CitizenPage citizenPage = new CitizenPage();
         Assert.assertTrue(citizenPage.isDisplayedUniqueElement(), "Citizen page isn't opened!");
@@ -39,6 +41,6 @@ public class NextButtonMarriageFormTest extends BaseTest{
         citizenPage.fillDateOfBirthField(ParseUtil.parseStringToInt(dateOfBirth));
         citizenPage.fillPassportNumberField(passportNumber);
         citizenPage.fillGenderField(gender);
-        Assert.assertFalse(citizenPage.isClickableNextButton(), "Next button is clickable!");
+        $(citizenPage.getNextButton()).shouldNotBe(Condition.enabled);
     }
 }

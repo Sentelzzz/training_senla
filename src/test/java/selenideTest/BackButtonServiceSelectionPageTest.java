@@ -1,6 +1,6 @@
 package selenideTest;
 
-import org.testng.Assert;
+import com.codeborne.selenide.Condition;
 import org.testng.annotations.Test;
 import pageForSelenide.ApplicantsPage;
 import pageForSelenide.MainPage;
@@ -8,6 +8,7 @@ import pageForSelenide.ServiceSelectionPage;
 import utils.ParseUtil;
 import utils.data.DataProviders;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BackButtonServiceSelectionPageTest extends BaseTest{
@@ -16,10 +17,10 @@ public class BackButtonServiceSelectionPageTest extends BaseTest{
     public void isBackButtonServiceSelectionPageWorkTest() {
         open(String.format(ParseUtil.settingsParser("mainUrl"), ParseUtil.testParser("login"), ParseUtil.testParser("password")));
         MainPage mainPage = new MainPage();
-        Assert.assertTrue(mainPage.mainPageIsOpen(), "Main page isn't opened!");
+        $(mainPage.getMainPageHeader()).shouldBe(Condition.visible);
         mainPage.loginLikeUser();
         ApplicantsPage applicantsPage = new ApplicantsPage();
-        Assert.assertTrue(applicantsPage.applicantsPageIsOpen(), "Applicants page isn't opened!");
+        $(applicantsPage.getApplicantsPageHeader()).shouldBe(Condition.visible);
         applicantsPage.fillSecondNameField(DataProviders.validUser.getSecondName());
         applicantsPage.fillFirstNameField(DataProviders.validUser.getFirstName());
         applicantsPage.fillMiddleNameField(DataProviders.validUser.getMiddleName());
@@ -27,8 +28,8 @@ public class BackButtonServiceSelectionPageTest extends BaseTest{
         applicantsPage.fillPassportNumberField(DataProviders.validUser.getPassportNumber());
         applicantsPage.clickNextButton();
         ServiceSelectionPage serviceSelectionPage = new ServiceSelectionPage();
-        Assert.assertTrue(serviceSelectionPage.isMarriagePageOpen(), "Service selection page isn't opened!");
+        $(serviceSelectionPage.getMarriageRegistrationButton()).shouldBe(Condition.visible);
         serviceSelectionPage.clickBackButton();
-        Assert.assertTrue(applicantsPage.applicantsPageIsOpen(), "Main page isn't opened!");
+        $(applicantsPage.getApplicantsPageHeader()).shouldBe(Condition.visible);
     }
 }

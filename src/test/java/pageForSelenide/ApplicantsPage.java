@@ -10,7 +10,6 @@ public class ApplicantsPage {
 
     private static final Logger logger = LogManager.getLogger(ApplicantsPage.class);
 
-
     public static final String APPLICANTS_PAGE_HEADER = "//h2//span[contains(text(), 'Вы вошли как пользователь')]";
     public static final String SECOND_NAME_INPUT = "//input[@id='TextInputField-1']";
     public static final String FIRST_NAME_INPUT = "//input[@id='TextInputField-2']";
@@ -19,8 +18,8 @@ public class ApplicantsPage {
     public static final String PASSPORT_NUMBER_INPUT = "//input[@id='TextInputField-5']";
     public static final String NEXT_BUTTON = "//button[contains(text(), 'Далее')]";
 
-    public boolean applicantsPageIsOpen() {
-        return $(By.xpath(APPLICANTS_PAGE_HEADER)).isDisplayed();
+    public By getApplicantsPageHeader() {
+        return By.xpath(APPLICANTS_PAGE_HEADER);
     }
 
     public void fillSecondNameField(String secondName) {
@@ -48,8 +47,8 @@ public class ApplicantsPage {
         $(By.xpath(PASSPORT_NUMBER_INPUT)).sendKeys(passportNumber);
     }
 
-    public boolean nextButtonIsClickable() {
-        return $(By.xpath(NEXT_BUTTON)).isEnabled();
+    public By getNextButton() {
+        return By.xpath(NEXT_BUTTON);
     }
 
     public void clickNextButton() {
