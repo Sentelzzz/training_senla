@@ -47,6 +47,23 @@
   "applicationId": "18898",
   "staffId": "8271",
   "actionRejected": "rejected",
-  "actionApproved": "approved"
-
+  "actionApproved": "approved",
+  "mode": "wedding",
+  "personalLastName": "Мялик",
+  "personalMiddleName": "Олегович",
+  "personalPhoneNumber": "375333565656",
+  "personalNumberOfPassport": "АВ3565656",
+  "citizenLastName": "Мялик",
+  "citizenFirstName": "Вадим",
+  "citizenMiddleName": "Олегович",
+  "citizenBirthDate": "1990-01-01",
+  "citizenNumberOfPassport": "АВ3565656",
+  "citizenGender": "Мужской",
+  "dateOfMarriage": "1991-01-01",
+  "newLastName": "Мялик",
+  "anotherPersonLastName": "Иванова",
+  "anotherPersonFirstName": "Екатерина",
+  "anotherPersonMiddleName": "Юрьевна",
+  "birth_of_anotoherPerson": "1992-02-02",
+  "anotherPersonPassport": "АВ3464646"
 }

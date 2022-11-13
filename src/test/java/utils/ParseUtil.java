@@ -2,13 +2,12 @@ package utils;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import models.Administrator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -64,11 +63,11 @@ public class ParseUtil {
         return indicateColor;
     }
 
-    public static String objectToJson(Administrator administrator) {
+    public static String objectToJson(Object object) {
         String result = null;
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            result = objectMapper.writeValueAsString(administrator);
+            result = objectMapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

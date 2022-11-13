@@ -3,6 +3,7 @@ package api;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import models.Administrator;
+import models.NewMarriageApplication;
 import org.apache.http.protocol.HTTP;
 import utils.ParseUtil;
 
@@ -31,5 +32,13 @@ public class ApiResponse {
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .when()
                 .post(CHANGE_STATUS_OF_APPLICATION_REQUEST);
+    }
+
+    public static Response createNewMarriageApplication(NewMarriageApplication newMarriageApplication) {
+        return given()
+                .body(ParseUtil.objectToJson(newMarriageApplication))
+                .header(HTTP.CONTENT_TYPE, ContentType.JSON)
+                .when()
+                .post(CREATE_USER_REQUEST);
     }
 }

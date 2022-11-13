@@ -6,12 +6,13 @@ import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.data.DataProviders;
 
-public class GetApplicationsTest extends BaseTest{
+public class CreateNewMarriageApplicationTest extends BaseTest{
 
     @Test
-    public void getApplications() {
-        Response response = ApiResponse.getListOfApplications();
+    public void createNewMarriageApplication() {
+        Response response = ApiResponse.createNewMarriageApplication(DataProviders.newMarriageRequest);
         Assert.assertEquals(response.statusCode(), HttpStatus.SC_OK, "Status code isn't 200!");
         Assert.assertTrue(response.contentType().contains(ContentType.JSON.toString()), "Response body doesn't have JSON format!");
     }
