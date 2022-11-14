@@ -1,8 +1,6 @@
 package utils.data;
 
-import models.Applicants;
-import models.FirstCitizen;
-import models.Spouse;
+import models.*;
 import org.testng.annotations.DataProvider;
 import utils.ParseUtil;
 
@@ -31,7 +29,7 @@ public class DataProviders {
             .phoneNumber(ParseUtil.testParser("boundaryPhoneNumber"))
             .passportNumber(ParseUtil.testParser("boundaryPassportNumber")).build();
 
-    public static final FirstCitizen validFirstCitizen = FirstCitizen.builder()
+    public static final Citizen validFirstCitizen = Citizen.builder()
             .secondName(ParseUtil.testParser("validCitizenSecondName"))
             .firstName(ParseUtil.testParser("validCitizenFirstName"))
             .middleName(ParseUtil.testParser("validCitizenMiddleName"))
@@ -46,6 +44,82 @@ public class DataProviders {
             .middleName(ParseUtil.testParser("validMiddleNameOfSpouse"))
             .dateOfBirth(ParseUtil.testParser("validDateOfBirthOfSpouse"))
             .passportNumber(ParseUtil.testParser("validPassportNumberOfSpouse")).build();
+
+    public static final Administrator validAdministrator = Administrator.builder()
+            .dateofbirth(ParseUtil.testParser("administratorDateOfBirth"))
+            .personalFirstName(ParseUtil.testParser("administratorFirstName"))
+            .personalLastName(ParseUtil.testParser("administratorLastName"))
+            .personalMiddleName(ParseUtil.testParser("administratorMiddleName"))
+            .personalNumberOfPassport(ParseUtil.testParser("administratorPassportNumber"))
+            .personalPhoneNumber(ParseUtil.testParser("administratorPhoneNumber")).build();
+
+    public static final Administrator validAdministratorWithoutDateOfBirth = Administrator.builder()
+            .dateofbirth("")
+            .personalFirstName(ParseUtil.testParser("administratorFirstName"))
+            .personalLastName(ParseUtil.testParser("administratorLastName"))
+            .personalMiddleName(ParseUtil.testParser("administratorMiddleName"))
+            .personalNumberOfPassport(ParseUtil.testParser("administratorPassportNumber"))
+            .personalPhoneNumber(ParseUtil.testParser("administratorPhoneNumber")).build();
+
+    public static final Administrator validAdministratorWithoutPersonalFirstName = Administrator.builder()
+            .dateofbirth(ParseUtil.testParser("administratorDateOfBirth"))
+            .personalFirstName("")
+            .personalLastName(ParseUtil.testParser("administratorLastName"))
+            .personalMiddleName(ParseUtil.testParser("administratorMiddleName"))
+            .personalNumberOfPassport(ParseUtil.testParser("administratorPassportNumber"))
+            .personalPhoneNumber(ParseUtil.testParser("administratorPhoneNumber")).build();
+
+    public static final Administrator validAdministratorWithoutPersonalLastName = Administrator.builder()
+            .dateofbirth(ParseUtil.testParser("administratorDateOfBirth"))
+            .personalFirstName(ParseUtil.testParser("administratorFirstName"))
+            .personalLastName("")
+            .personalMiddleName(ParseUtil.testParser("administratorMiddleName"))
+            .personalNumberOfPassport(ParseUtil.testParser("administratorPassportNumber"))
+            .personalPhoneNumber(ParseUtil.testParser("administratorPhoneNumber")).build();
+
+    public static final Administrator validAdministratorWithotPersonalMiddleName = Administrator.builder()
+            .dateofbirth(ParseUtil.testParser("administratorDateOfBirth"))
+            .personalFirstName(ParseUtil.testParser("administratorFirstName"))
+            .personalLastName(ParseUtil.testParser("administratorLastName"))
+            .personalMiddleName("")
+            .personalNumberOfPassport(ParseUtil.testParser("administratorPassportNumber"))
+            .personalPhoneNumber(ParseUtil.testParser("administratorPhoneNumber")).build();
+
+    public static final Administrator validAdministratorWithoutPersonalNumberOfPassport = Administrator.builder()
+            .dateofbirth(ParseUtil.testParser("administratorDateOfBirth"))
+            .personalFirstName(ParseUtil.testParser("administratorFirstName"))
+            .personalLastName(ParseUtil.testParser("administratorLastName"))
+            .personalMiddleName(ParseUtil.testParser("administratorMiddleName"))
+            .personalNumberOfPassport("")
+            .personalPhoneNumber(ParseUtil.testParser("administratorPhoneNumber")).build();
+
+    public static final Administrator validAdministratorWithoutPersonalPhoneNumber = Administrator.builder()
+            .dateofbirth(ParseUtil.testParser("administratorDateOfBirth"))
+            .personalFirstName(ParseUtil.testParser("administratorFirstName"))
+            .personalLastName(ParseUtil.testParser("administratorLastName"))
+            .personalMiddleName(ParseUtil.testParser("administratorMiddleName"))
+            .personalNumberOfPassport(ParseUtil.testParser("administratorPassportNumber"))
+            .personalPhoneNumber("").build();
+
+    public static final NewMarriageApplication newMarriageRequest = NewMarriageApplication.builder()
+            .mode(ParseUtil.testParser("mode"))
+            .personalLastName(ParseUtil.testParser("personalLastName"))
+            .personalMiddleName(ParseUtil.testParser("personalMiddleName"))
+            .personalPhoneNumber(ParseUtil.testParser("personalPhoneNumber"))
+            .personalNumberOfPassport(ParseUtil.testParser("personalNumberOfPassport"))
+            .citizenLastName(ParseUtil.testParser("citizenLastName"))
+            .citizenFirstName(ParseUtil.testParser("citizenFirstName"))
+            .citizenMiddleName(ParseUtil.testParser("citizenMiddleName"))
+            .citizenBirthDate(ParseUtil.testParser("citizenBirthDate"))
+            .citizenNumberOfPassport(ParseUtil.testParser("citizenNumberOfPassport"))
+            .citizenGender(ParseUtil.testParser("citizenGender"))
+            .dateOfMarriage(ParseUtil.testParser("dateOfMarriage"))
+            .newLastName(ParseUtil.testParser("newLastName"))
+            .anotherPersonLastName(ParseUtil.testParser("anotherPersonLastName"))
+            .anotherPersonFirstName(ParseUtil.testParser("anotherPersonFirstName"))
+            .anotherPersonMiddleName(ParseUtil.testParser("anotherPersonMiddleName"))
+            .birth_of_anotoherPerson(ParseUtil.testParser("birth_of_anotoherPerson"))
+            .anotherPersonPassport(ParseUtil.testParser("anotherPersonPassport")).build();
 
     @DataProvider
     public static Object[][] userCorrectData() {
@@ -110,6 +184,18 @@ public class DataProviders {
                         validFirstCitizen.getDateOfBirth(), "", validFirstCitizen.getGender()},
                 {validFirstCitizen.getSecondName(), validFirstCitizen.getFirstName(), validFirstCitizen.getMiddleName(),
                         validFirstCitizen.getDateOfBirth(), validFirstCitizen.getPassportNumber(), ""}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] administratorDataWithEmptyFields() {
+        return new Object[][] {
+                {validAdministratorWithoutDateOfBirth},
+                {validAdministratorWithoutPersonalFirstName},
+                {validAdministratorWithoutPersonalLastName},
+                {validAdministratorWithotPersonalMiddleName},
+                {validAdministratorWithoutPersonalNumberOfPassport},
+                {validAdministratorWithoutPersonalPhoneNumber}
         };
     }
 }

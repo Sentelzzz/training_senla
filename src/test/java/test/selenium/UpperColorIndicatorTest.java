@@ -1,4 +1,4 @@
-package test;
+package test.selenium;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +9,7 @@ import service.NavigateSteps;
 import utils.ParseUtil;
 import utils.data.DataProviders;
 
-public class UpperColorIndicatorTest extends BaseTest{
+public class UpperColorIndicatorTest extends BaseTest {
 
     @Test
     public void firstTest() {
