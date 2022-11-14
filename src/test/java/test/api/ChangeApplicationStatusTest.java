@@ -1,6 +1,8 @@
 package test.api;
 
 import api.ApiResponse;
+import dataBase.DataBaseObjects;
+import dataBase.DataBaseApplications;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import models.RootOfApplicationStatusBody;
@@ -8,6 +10,10 @@ import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.ParseUtil;
+
+import java.sql.ResultSet;
+
+import static constants.DataBaseConstants.SELECT_APPLICATIONS_STATUS;
 
 public class ChangeApplicationStatusTest extends BaseTest{
 
@@ -22,6 +28,13 @@ public class ChangeApplicationStatusTest extends BaseTest{
         RootOfApplicationStatusBody changeApplicationStatusBody = gson.fromJson(response.body().asPrettyString(),
                 RootOfApplicationStatusBody.class);
         Assert.assertEquals(changeApplicationStatusBody.data.statusOfApplication, action, "Status of application isn't changed!");
+
+        DataBaseApplications dataBaseApplications = new DataBaseApplications();
+        dataBaseApplications.connect(ParseUtil.testParser("DbLogin"), ParseUtil.testParser("DbPassword"));
+        ResultSet resultSet = dataBaseApplications.requestSQL(String.format(SELECT_APPLICATIONS_STATUS, applicationId));
+        Assert.assertEquals(DataBaseObjects.getSqlApplication(resultSet).getStatusOfApplication(), changeApplicationStatusBody.data.statusOfApplication,
+                "Status doesn't math!");
+        dataBaseApplications.close();
     }
 
     @Test
@@ -35,5 +48,12 @@ public class ChangeApplicationStatusTest extends BaseTest{
         RootOfApplicationStatusBody changeApplicationStatusBody = gson.fromJson(response.body().asPrettyString(),
                 RootOfApplicationStatusBody.class);
         Assert.assertEquals(changeApplicationStatusBody.data.statusOfApplication, action, "Status of application isn't changed!");
+
+        DataBaseApplications dataBaseApplications = new DataBaseApplications();
+        dataBaseApplications.connect(ParseUtil.testParser("DbLogin"), ParseUtil.testParser("DbPassword"));
+        ResultSet resultSet = dataBaseApplications.requestSQL(String.format(SELECT_APPLICATIONS_STATUS, applicationId));
+        Assert.assertEquals(DataBaseObjects.getSqlApplication(resultSet).getStatusOfApplication(), changeApplicationStatusBody.data.statusOfApplication,
+                "Status doesn't math!");
+        dataBaseApplications.close();
     }
 }
