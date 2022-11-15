@@ -29,7 +29,7 @@
   "validCitizenSecondName": "Мялик",
   "validCitizenFirstName": "Вадим",
   "validCitizenMiddleName": "Олегович",
-  "validCitizenDateOfBirth": "10.10.1991",
+  "validCitizenDateOfBirth": "10-10-1991",
   "validCitizenPassportNumber": "AB3565656",
   "validCitizenGender": "Мужской",
   "validDateOfRegistration": "12.10.2022",
@@ -65,5 +65,7 @@
   "anotherPersonFirstName": "Екатерина",
   "anotherPersonMiddleName": "Юрьевна",
   "birth_of_anotoherPerson": "1992-02-02",
-  "anotherPersonPassport": "АВ3464646"
+  "anotherPersonPassport": "АВ3464646",
+  "DbLogin": "user",
+  "DbPassword": "user_senla"
 }
