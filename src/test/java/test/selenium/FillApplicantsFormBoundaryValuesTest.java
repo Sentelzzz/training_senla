@@ -36,7 +36,7 @@ public class FillApplicantsFormBoundaryValuesTest extends BaseTest {
         softAssert.assertEquals(passportNumber, applicantsPage.getPassportNumberFieldText(), "Passport numbers don't match!");
         softAssert.assertFalse(applicantsPage.isPassportNumberAriaInvalid(), "Red indicator around passport number field present");
         Assert.assertTrue(applicantsPage.nextButtonIsClickable(), "Next button is enabled!");
-        applicantsPage.clickNextButton();
+        applicantsPage.clickApplicantsNextButton();
         softAssert.assertAll();
     }
 

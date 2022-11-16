@@ -34,7 +34,7 @@ public class ApplicantsPage extends BasePage{
         return webDriver.findElements(By.xpath("//*[name()='svg']")).get(indicatorNumber).getCssValue("color");
     }
 
-    public void clickNextButton() {
+    public void clickApplicantsNextButton() {
         logger.info("Click next button.");
         nextButton.click();
     }

@@ -26,7 +26,7 @@ public class UpperColorIndicatorTest extends BaseTest {
         applicantsPage.fillPhoneNumberField(ParseUtil.parseStringToInt(DataProviders.validUser.getPhoneNumber()));
         applicantsPage.fillPassportNumberField(DataProviders.validUser.getPassportNumber());
         Assert.assertTrue(applicantsPage.nextButtonIsClickable(), "Next button is enabled!");
-        applicantsPage.clickNextButton();
+        applicantsPage.clickApplicantsNextButton();
         softAssert.assertEquals(ParseUtil.getColor(applicantsPage.getColorOfIndicator(Integer.
                 parseInt(ParseUtil.testParser("firstNumberTestedColorIndicator")))), ParseUtil.
                 testParser("expectedColorOfColorIndicator"), "The color of the first number of the tested color indicator is not green!");

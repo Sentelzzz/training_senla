@@ -70,5 +70,21 @@
   "mother": "Галина",
   "father": "Олег",
   "DbLogin": "user",
-  "DbPassword": "user_senla"
+  "DbPassword": "user_senla",
+  "applicants": "Applicants",
+  "birth registration": "Birth registration",
+  "birth information": "Birth information",
+  "applicants second name": "secondName",
+  "applicants first name": "firstName",
+  "applicants middle name": "middleName",
+  "applicants passport number": "passportNumber",
+  "applicants phone number": "phoneNumber",
+  "birth registration second name": "secondName",
+  "birth registration first name": "firstName",
+  "birth registration middle name": "middleName",
+  "birth registration passport number": "passportNumber",
+  "birth registration date of birth": "dateOfBirth",
+  "birth registration gender": "gender",
+  "next": "next",
+  "finish": "finish"
 }
