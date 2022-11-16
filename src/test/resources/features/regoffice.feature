@@ -1,7 +1,7 @@
 Feature: Create birth certificate
 
   Scenario: Login like user
-    Given User navigate to reg office.eu
+    Given User navigate to "mainUrl"
     When User clicks login like user
     Then Open applicants form
 

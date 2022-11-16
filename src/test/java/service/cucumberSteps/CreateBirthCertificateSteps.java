@@ -12,18 +12,19 @@ import utils.driver.DriverSingleton;
 
 public class CreateBirthCertificateSteps {
 
+    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
+
     private final MainPage mainPage = new MainPage();
     private final ApplicantsPage applicantsPage = new ApplicantsPage();
     private final ServiceSelectionPage serviceSelectionPage = new ServiceSelectionPage();
-    private final WebDriver driver = DriverSingleton.getInstance().getDriver();
     private final BirthRegistrationPage birthRegistrationPage = new BirthRegistrationPage();
     private final BirthInformationPage birthInformationPage = new BirthInformationPage();
     private final ApplicationsPage applicationsPage = new ApplicationsPage();
 
-    @Given("User navigate to reg office.eu")
-    public void userNavigateToRegOfficeEu() {
+    @Given("User navigate to {string}")
+    public void userNavigateToRegOfficeEu(String url) {
         driver.manage().window().maximize();
-        driver.navigate().to(String.format(ParseUtil.settingsParser("mainUrl"),
+        driver.navigate().to(String.format(ParseUtil.settingsParser(url),
                 ParseUtil.testParser("login"), ParseUtil.testParser("password")));
     }
 
