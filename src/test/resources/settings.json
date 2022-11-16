@@ -1,5 +1,6 @@
 {
   "browser": "chrome",
   "mainUrl": "https://%s:%s@regoffice.senla.eu",
-  "apiUrl": "https://%s:%s@regoffice.senla.eu/"
+  "apiUrl": "https://%s:%s@regoffice.senla.eu/",
+  "logsFile": "tests.log"
 }

@@ -9,7 +9,7 @@ import utils.data.DataProviders;
 
 public class CreateMarriageCertificatesTest extends BaseTest {
 
-    @Test
+    @Test(description = "Create new marriage certificate using valid data.")
     public void createNewMarriageCertificate() {
         NavigateSteps navigateSteps = new NavigateSteps();
         navigateSteps.openMainPage();
