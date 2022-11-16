@@ -24,7 +24,7 @@ public class CreateMarriageCertificatesTest extends BaseTest {
         applicantsPage.fillPassportNumberField(DataProviders.validUser.getPassportNumber());
         applicantsPage.clickNextButton();
         ServiceSelectionPage serviceSelection= new ServiceSelectionPage();
-        Assert.assertTrue(serviceSelection.isMarriagePageOpen(), "Service selection page isn't opened!");
+        Assert.assertTrue(serviceSelection.isServicePageOpen(), "Service selection page isn't opened!");
         serviceSelection.clickMarriageRegistrationButton();
         CitizenPage citizenPage = new CitizenPage();
         Assert.assertTrue(citizenPage.isDisplayedUniqueElement(), "Citizen page isn't opened!");

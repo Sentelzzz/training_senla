@@ -29,6 +29,9 @@ public class MarriagePage extends BasePage{
     @FindBy(xpath = "//button[contains(text(), 'Завершить')]")
     private WebElement finishButton;
 
+    @FindBy(xpath = "//button[contains(text(), 'Далее')]")
+    private WebElement nextButton;
+
     public boolean isMarriagePageOpen() {
         return uniqueMarriagePageLabel.isDisplayed();
     }
@@ -70,5 +73,9 @@ public class MarriagePage extends BasePage{
 
     public boolean isFinishButtonEnable() {
         return finishButton.isEnabled();
+    }
+
+    public void clickNextButton() {
+        nextButton.click();
     }
 }

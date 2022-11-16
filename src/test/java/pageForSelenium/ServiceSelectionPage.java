@@ -8,12 +8,20 @@ public class ServiceSelectionPage extends BasePage{
     @FindBy(xpath = "//button[contains(text(), 'Регистрация брака')]")
     private WebElement marriageRegistrationsButton;
 
-    public boolean isMarriagePageOpen() {
+    @FindBy(xpath = "//button[contains(text(), 'Регистрация рождения')]")
+    private WebElement birthRegistrationButton;
+
+    public boolean isServicePageOpen() {
         return marriageRegistrationsButton.isDisplayed();
     }
 
     public void clickMarriageRegistrationButton() {
         logger.info("Click marriage registration button.");
         marriageRegistrationsButton.click();
+    }
+
+    public void clickOnBirthRegistrationButton() {
+        logger.info("Click birth registration button.");
+        birthRegistrationButton.click();
     }
 }
