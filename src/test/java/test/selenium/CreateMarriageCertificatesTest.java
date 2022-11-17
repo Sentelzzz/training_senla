@@ -22,7 +22,7 @@ public class CreateMarriageCertificatesTest extends BaseTest {
         applicantsPage.fillMiddleNameField(DataProviders.validUser.getMiddleName());
         applicantsPage.fillPhoneNumberField(ParseUtil.parseStringToInt(DataProviders.validUser.getPhoneNumber()));
         applicantsPage.fillPassportNumberField(DataProviders.validUser.getPassportNumber());
-        applicantsPage.clickNextButton();
+        applicantsPage.clickApplicantsNextButton();
         ServiceSelectionPage serviceSelection= new ServiceSelectionPage();
         Assert.assertTrue(serviceSelection.isServicePageOpen(), "Service selection page isn't opened!");
         serviceSelection.clickMarriageRegistrationButton();

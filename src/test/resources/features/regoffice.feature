@@ -6,12 +6,12 @@ Feature: Create birth certificate
     Then Open applicants form
 
   Scenario: Fill applicants form
-    Given User inputs "validateSecondName" to secondName field
-    And User inputs "validateFirstName" to firstName field
-    And User inputs "validateMiddleName" to middleName field
-    And User inputs "validatePhoneNumber" to phoneNumber field
-    And User inputs "validatePassportNumber" to passportNumber field
-    When User clicks next button on applicants form page
+    Given User inputs "validateSecondName" to "applicants second name" field "applicants" form
+    And User inputs "validateFirstName" to "applicants first name" field "applicants" form
+    And User inputs "validateMiddleName" to "applicants middle name" field "applicants" form
+    And User inputs "validatePhoneNumber" to "applicants phone number" field "applicants" form
+    And User inputs "validatePassportNumber" to "applicants passport number" field "applicants" form
+    When User clicks "next" button on "applicants" page
     Then Open service selection page
 
   Scenario: Open birth registration page
@@ -19,18 +19,18 @@ Feature: Create birth certificate
     Then Open birth registration page
 
   Scenario: Fill birth registration form
-    Given User inputs "validCitizenSecondName" to secondName field birth registration form
-    And User inputs "validCitizenFirstName" to firstName field birth registration form
-    And User inputs "validCitizenMiddleName" to middleName field birth registration form
-    And User inputs "validCitizenDateOfBirth" to date of birth field birth registration form
-    And User inputs "validCitizenPassportNumber" to passport number field birth registration form
-    And User inputs "validCitizenGender" to gender field birth registration form
-    When User click next button on birth registration form
+    Given User inputs "validCitizenSecondName" to "birth registration second name" field "birth registration" form
+    And User inputs "validCitizenFirstName" to "birth registration first name" field "birth registration" form
+    And User inputs "validCitizenMiddleName" to "birth registration middle name" field "birth registration" form
+    And User inputs "validCitizenDateOfBirth" to "birth registration date of birth" field "birth registration" form
+    And User inputs "validCitizenPassportNumber" to "birth registration passport number" field "birth registration" form
+    And User inputs "validCitizenGender" to "birth registration gender" field "birth registration" form
+    When User clicks "next" button on "birth registration" page
     Then Open birth information page
 
   Scenario: Fill birth information form
     Given User inputs "birthPlace" to place of birth field
     And User inputs "mother" to mother field
     And User inputs "father" to father field
-    When User clicks finish button
+    When User clicks "finish" button on "birth information" page
     Then Open application

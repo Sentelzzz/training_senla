@@ -38,36 +38,6 @@ public class CreateBirthCertificateSteps {
         Assert.assertTrue(mainPage.mainPageIsOpen());
     }
 
-    @Given("User inputs {string} to secondName field")
-    public void userInputsToSecondNameField(String secondName) {
-        applicantsPage.fillSecondNameField(ParseUtil.testParser(secondName));
-    }
-
-    @And("User inputs {string} to firstName field")
-    public void userInputsToFirstNameField(String firstName) {
-        applicantsPage.fillFirstNameField(ParseUtil.testParser(firstName));
-    }
-
-    @And("User inputs {string} to middleName field")
-    public void userInputsToMiddleNameField(String middleName) {
-        applicantsPage.fillMiddleNameField(ParseUtil.testParser(middleName));
-    }
-
-    @And("User inputs {string} to phoneNumber field")
-    public void userInputsToPhoneNumberField(String phoneNumber) {
-        applicantsPage.fillPhoneNumberField(Integer.parseInt(ParseUtil.testParser(phoneNumber)));
-    }
-
-    @And("User inputs {string} to passportNumber field")
-    public void userInputsToPassportNumberField(String passportNumber) {
-        applicantsPage.fillPassportNumberField(ParseUtil.testParser(passportNumber));
-    }
-
-    @When("User clicks next button on applicants form page")
-    public void userClicksNextButtonOnApplicantsFormPage() {
-        applicantsPage.clickNextButton();
-    }
-
     @Then("Open service selection page")
     public void openServiceSelectionPage() {
         Assert.assertTrue(serviceSelectionPage.isServicePageOpen());
@@ -81,41 +51,6 @@ public class CreateBirthCertificateSteps {
     @Then("Open birth registration page")
     public void openBirthRegistrationPage() {
         Assert.assertTrue(birthRegistrationPage.isBirthRegistrationOpen());
-    }
-
-    @Given("User inputs {string} to secondName field birth registration form")
-    public void userInputsToSecondNameFieldBirthRegistrationForm(String secondName) {
-        birthRegistrationPage.writeSecondName(ParseUtil.testParser(secondName));
-    }
-
-    @And("User inputs {string} to firstName field birth registration form")
-    public void userInputsToFirstNameFieldBirthRegistrationForm(String firstName) {
-        birthRegistrationPage.writeFirstName(ParseUtil.testParser(firstName));
-    }
-
-    @And("User inputs {string} to middleName field birth registration form")
-    public void userInputsToMiddleNameFieldBirthRegistrationForm(String middleName) {
-        birthRegistrationPage.writeMiddleName(ParseUtil.testParser(middleName));
-    }
-
-    @And("User inputs {string} to date of birth field birth registration form")
-    public void userInputsToDateOfBirthFieldBirthRegistrationForm(String dateOfBirth) {
-        birthRegistrationPage.writeDateOfBirth(ParseUtil.parseStringToInt(ParseUtil.testParser(dateOfBirth)));
-    }
-
-    @And("User inputs {string} to passport number field birth registration form")
-    public void userInputsToPassportNumberFieldBirthRegistrationForm(String passportNumber) {
-        birthRegistrationPage.writePassportNumber(ParseUtil.testParser(passportNumber));
-    }
-
-    @And("User inputs {string} to gender field birth registration form")
-    public void userInputsToGenderFieldBirthRegistrationForm(String gender) {
-        birthRegistrationPage.writeGender(ParseUtil.testParser(gender));
-    }
-
-    @When("User click next button on birth registration form")
-    public void userClickNextButtonOnBirthRegistrationForm() {
-        birthRegistrationPage.clickNextButton();
     }
 
     @Then("Open birth information page")
@@ -138,13 +73,82 @@ public class CreateBirthCertificateSteps {
         birthInformationPage.fillFatherField(ParseUtil.testParser(father));
     }
 
-    @When("User clicks finish button")
-    public void userClicksFinishButton() {
-        birthInformationPage.clickFinishButton();
-    }
-
     @Then("Open application")
     public void openApplication() {
         Assert.assertTrue(applicationsPage.isRefreshButtonExist());
+    }
+
+    @Given("User inputs {string} to {string} field {string} form")
+    public void userInputsToSecondNameFieldForm(String value, String fieldName, String formName) {
+        switch (ParseUtil.testParser(formName)) {
+            case ("Applicants"):
+                switch (ParseUtil.testParser(fieldName)) {
+                    case ("secondName"):
+                        applicantsPage.fillSecondNameField(ParseUtil.testParser(value));
+                        break;
+                    case ("firstName"):
+                        applicantsPage.fillFirstNameField(ParseUtil.testParser(value));
+                        break;
+                    case ("middleName"):
+                        applicantsPage.fillMiddleNameField(ParseUtil.testParser(value));
+                        break;
+                    case ("phoneNumber"):
+                        applicantsPage.fillPhoneNumberField(Integer.parseInt(ParseUtil.testParser(value)));
+                        break;
+                    case ("passportNumber"):
+                        applicantsPage.fillPassportNumberField(ParseUtil.testParser(value));
+                        break;
+                }
+                break;
+            case ("Birth registration"):
+                switch (ParseUtil.testParser(fieldName)) {
+                    case ("secondName"):
+                        birthRegistrationPage.writeSecondName(ParseUtil.testParser(value));
+                        break;
+                    case ("firstName"):
+                        birthRegistrationPage.writeFirstName(ParseUtil.testParser(value));
+                        break;
+                    case ("middleName"):
+                        birthRegistrationPage.writeMiddleName(ParseUtil.testParser(value));
+                        break;
+                    case ("dateOfBirth"):
+                        birthRegistrationPage.writeDateOfBirth(ParseUtil.parseStringToInt(ParseUtil.testParser(value)));
+                        break;
+                    case ("passportNumber"):
+                        birthRegistrationPage.writePassportNumber(ParseUtil.testParser(value));
+                        break;
+                    case ("gender"):
+                        birthRegistrationPage.writeGender(ParseUtil.testParser(value));
+                        break;
+                }
+                break;
+        }
+    }
+
+    @When("User clicks {string} button on {string} page")
+    public void userClicksButtonOnPage(String button, String pageName) {
+        switch (ParseUtil.testParser(pageName)) {
+            case ("Applicants"):
+                switch (ParseUtil.testParser(button)) {
+                    case ("next"):
+                        applicantsPage.clickApplicantsNextButton();
+                        break;
+                }
+                break;
+            case ("Birth registration"):
+                switch (ParseUtil.testParser(button)) {
+                    case ("next"):
+                        birthRegistrationPage.clickNextButton();
+                        break;
+                }
+                break;
+            case ("Birth information"):
+                switch (ParseUtil.testParser(button)) {
+                    case ("finish"):
+                        birthInformationPage.clickFinishButton();
+                        break;
+                }
+                break;
+        }
     }
 }
