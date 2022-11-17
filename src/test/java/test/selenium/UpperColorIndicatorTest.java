@@ -11,8 +11,8 @@ import utils.data.DataProviders;
 
 public class UpperColorIndicatorTest extends BaseTest {
 
-    @Test
-    public void firstTest() {
+    @Test(description = "Check that upper color indicator working correct.")
+    public void upperColorIndicatorTest() {
         SoftAssert softAssert = new SoftAssert();
         NavigateSteps navigateSteps = new NavigateSteps();
         navigateSteps.openMainPage();

@@ -11,7 +11,7 @@ import utils.data.DataProviders;
 
 public class FillApplicantsFormBoundaryValuesTest extends BaseTest {
 
-    @Test (dataProvider = "userCorrectData", dataProviderClass = DataProviders.class)
+    @Test (dataProvider = "userCorrectData", dataProviderClass = DataProviders.class, description = "Fill applicants form using valid data.")
     public void fillApplicantsFormValidValues(String secondName, String firstName, String middleName, String phoneNumber, String passportNumber) {
         SoftAssert softAssert = new SoftAssert();
         NavigateSteps navigateSteps = new NavigateSteps();
@@ -40,7 +40,7 @@ public class FillApplicantsFormBoundaryValuesTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(dataProvider = "userIncorrectData", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "userIncorrectData", dataProviderClass = DataProviders.class, description = "Fill applicants form using invalid data.")
     public void fillApplicantsFormIncorrectValues(String secondName, String firstName, String middleName, String phoneNumber, String passportNumber) {
         SoftAssert softAssert = new SoftAssert();
         NavigateSteps navigateSteps = new NavigateSteps();
