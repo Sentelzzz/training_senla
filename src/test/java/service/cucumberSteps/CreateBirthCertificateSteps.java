@@ -99,6 +99,7 @@ public class CreateBirthCertificateSteps {
                         applicantsPage.fillPassportNumberField(ParseUtil.testParser(value));
                         break;
                 }
+                break;
             case ("Birth registration"):
                 switch (ParseUtil.testParser(fieldName)) {
                     case ("secondName"):
@@ -120,6 +121,7 @@ public class CreateBirthCertificateSteps {
                         birthRegistrationPage.writeGender(ParseUtil.testParser(value));
                         break;
                 }
+                break;
         }
     }
 
@@ -132,18 +134,21 @@ public class CreateBirthCertificateSteps {
                         applicantsPage.clickApplicantsNextButton();
                         break;
                 }
+                break;
             case ("Birth registration"):
                 switch (ParseUtil.testParser(button)) {
                     case ("next"):
                         birthRegistrationPage.clickNextButton();
                         break;
                 }
+                break;
             case ("Birth information"):
                 switch (ParseUtil.testParser(button)) {
                     case ("finish"):
                         birthInformationPage.clickFinishButton();
                         break;
                 }
+                break;
         }
     }
 }
