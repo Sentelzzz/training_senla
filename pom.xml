@@ -24,28 +24,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.13</version>
-                <configuration>
-                    <repository>cordiance-config-admin</repository>
-                    <tag>${project.version}</tag>
-                    <contextDirectory>${project.basedir}</contextDirectory>
-                    <verbose>true</verbose>
-                    <writeTestMetadata>false</writeTestMetadata>
-                    <contextDirectory>${project.basedir}</contextDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -74,12 +52,6 @@
     </build>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
-        <dependency>
-            <groupId>com.spotify</groupId>
-            <artifactId>dockerfile-maven-plugin</artifactId>
-            <version>1.4.13</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
