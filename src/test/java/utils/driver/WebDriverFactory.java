@@ -5,11 +5,14 @@ import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import utils.ParseUtil;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 @Log4j2
 public class WebDriverFactory {
@@ -33,10 +36,19 @@ public class WebDriverFactory {
                 break;
             }
             case "chrome": {
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("incognito");
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver(options);
+                //ChromeOptions options = new ChromeOptions();
+                //options.addArguments("incognito");
+                try {
+                    DesiredCapabilities cap = new DesiredCapabilities();
+                    cap.setBrowserName(ParseUtil.settingsParser("browser"));
+                    //WebDriverManager.chromedriver().setup();
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
+                } catch (MalformedURLException ignored) {
+                    driver = null;
+                    System.out.println("exception");
+                }
+
+                //driver = new ChromeDriver(options);
                 break;
             }
             default:
